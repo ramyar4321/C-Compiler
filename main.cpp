@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+#include "Test/TestLexer.hpp"
 
 int main() 
 {
 
-    std::string text;
+    /*std::string text;
 
     while(true){
         // Read input from the console.
@@ -20,7 +21,13 @@ int main()
         }
 
 
-    }
+    }*/
+
+    // Tests
+    TestLexer tl;
+    tl.testTokenizer();
+
+
 
   return 0;
 }
