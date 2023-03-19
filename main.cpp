@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Test/TestLexer.hpp"
+#include "Test/TestError.hpp"
 
 int main() 
 {
@@ -26,7 +27,8 @@ int main()
     // Tests
     TestLexer tl;
     tl.testTokenizer();
-
+    TestError te;
+    te.testError();
 
 
   return 0;

@@ -1,3 +1,6 @@
+#ifndef LEXER
+#define LEXER
+
 #include <vector>
 #include <string>
 #include "../Token/Token.hpp"
@@ -35,3 +38,5 @@ class Lexer{
         
 
 };
+
+#endif // End of LEXER

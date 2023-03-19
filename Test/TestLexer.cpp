@@ -2,11 +2,17 @@
 #include "../Lexer/Lexer.hpp"
 #include <iostream>
 
+/**
+ * This method tests the tokenizer method of the Lexer class.
+ * 
+ * @return testPassed True if the test passed, false otherwise.
+ * 
+*/
 bool TestLexer::testTokenizer(){
 
     bool testPassed = true;
 
-    std::string text = "123+456";
+    std::string text = "    123 + 456";
 
     Lexer lexer = Lexer(text);
     std::vector<Token> actual_results = lexer.tokenize();
@@ -15,18 +21,6 @@ bool TestLexer::testTokenizer(){
                                          Token(TN_ADD, "+"),
                                          Token(TN_INT, "456")};
 
-    std::cout << actual_results.size() << std::endl;
-    std::cout << expected_results.size() << std::endl;
-
-    for( int i =0; i < actual_results.size(); i++){
-        actual_results[i].print();
-    }
-    
-    std::cout << "--------------" << std::endl;
-
-    for( int j =0; j < expected_results.size(); j++){
-        expected_results[j].print();
-    }
 
     if (actual_results.size() == expected_results.size()){
         if ( actual_results[0] == expected_results[0] &&

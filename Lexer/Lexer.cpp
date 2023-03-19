@@ -1,6 +1,6 @@
 #include "Lexer.hpp"
+#include "../Error/Error.hpp"
 #include <ctype.h>
-
 
 /**
  * Constructor for the Lexer class.
@@ -44,8 +44,15 @@ std::vector<Token> Lexer::tokenize(){
         } else if(isdigit(this->cur_char)){
             tokens.push_back(makeIntegerToken());
         } else{
-            //TODO error
+            // Erro: unidentified symbol reached
+            Error::getInstance().setFlag();
+
+
+            std::string err_msg = "Unidentified symbol ";
+            err_msg += cur_char;
+            Error::getInstance().printErrorMsg(err_msg);
             this->advance();
+
         }
 
     }
