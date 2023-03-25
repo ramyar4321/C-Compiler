@@ -37,6 +37,10 @@ class Token{
         std::string value;
     public:
         Token(const token_name& tn, const std::string& value);
+
+        token_name getTokenName();
+        std::string getTokenValue();
+
         bool operator==(Token t);
         void print();
 };

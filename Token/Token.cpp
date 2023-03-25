@@ -7,6 +7,20 @@ Token::Token(const token_name& tn, const std::string& value):
 {}
 
 /**
+ * Get the token name of this token.
+*/
+token_name Token::getTokenName(){
+    return this->tn;
+}
+
+/**
+ * Get the token value of this token.
+*/
+std::string Token::getTokenValue(){
+    return this->value;
+}
+
+/**
  * Overload of equality operator.
  * 
  * This token is equal to another token if and only

@@ -2,6 +2,7 @@
 #include <string>
 #include "Test/TestLexer.hpp"
 #include "Test/TestError.hpp"
+#include "Test/TestParser.hpp"
 
 int main() 
 {
@@ -29,6 +30,8 @@ int main()
     tl.testTokenizer();
     TestError te;
     te.testError();
+    TestParser tp;
+    tp.testParser();
 
 
   return 0;
