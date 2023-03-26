@@ -1,7 +1,9 @@
 #ifndef AST_NODE
 #define AST_NODE
 
+#include <vector>
 #include <string>
+
 /**
  * ++++++++++++++++++++++++++++++
  * -----------AST Node-----------
@@ -16,7 +18,7 @@ class ASTNode{
     public:
         virtual ~ASTNode() = 0;
 
-        virtual void traverse() = 0;
+        virtual void traverse(std::vector<std::string>& node_value_acc) = 0;
 
 };
 

@@ -21,7 +21,7 @@ class IntegerNode : public ASTNode{
     public:
         IntegerNode(Token t);
 
-        void traverse();
+        void traverse(std::vector<std::string>& node_value_acc);
 };
 
 #endif // End of INTEGER_NODE

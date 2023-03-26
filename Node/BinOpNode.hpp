@@ -24,7 +24,7 @@ class BinOpNode: public ASTNode{
     public:
         BinOpNode(std::string op, std::unique_ptr<ASTNode>LHS, std::unique_ptr<ASTNode> RHS); 
 
-        void traverse();
+        void traverse(std::vector<std::string>& node_value_acc);
 };
 
 #endif // End of BINARY_OPERATOR_NODE
