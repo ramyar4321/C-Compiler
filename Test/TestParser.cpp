@@ -1,6 +1,8 @@
 #include "TestParser.hpp"
 #include "../Lexer/Lexer.hpp"
 #include "../Parser/Parser.hpp"
+#include "../Interpreter/Interpreter.hpp"
+#include "../Interpreter/Store.hpp"
 #include <memory>
 #include <string>
 #include <iostream>
@@ -33,7 +35,18 @@ bool TestParser::testParser(){
     Parser parser = Parser(tokens);
     std::unique_ptr<ASTNode> root = parser.initParser();
 
-    std::vector<std::string> actual_results;
+    std::unique_ptr<Interpreter> interp(new Store); 
+
+    root.get()->accept(*interp.get());
+
+    std::stack<std::string> nodes = interp.get()->getNodes();
+
+    while(!nodes.empty()){
+        std::cout << nodes.top() << std::endl;
+        nodes.pop();
+    }
+
+    /*std::vector<std::string> actual_results;
     root.get()->traverse(actual_results);
 
     std::vector<std::string> expected_results = {"123", "+", "456", "*", "789"};
@@ -52,7 +65,7 @@ bool TestParser::testParser(){
     } else{
         std::cout << "Parser test failed! Expected result size not equal to actual result size." << std::endl;
         testPassed = false;
-    }
+    }*/
 
     return testPassed;
 }

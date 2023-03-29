@@ -22,9 +22,11 @@ class BinOpNode: public ASTNode{
         std::unique_ptr<ASTNode> LHS, RHS;
 
     public:
-        BinOpNode(std::string op, std::unique_ptr<ASTNode>LHS, std::unique_ptr<ASTNode> RHS); 
+        BinOpNode(std::string op, std::unique_ptr<ASTNode>LHS, std::unique_ptr<ASTNode> RHS);
+        
+        std::string getOp();
 
-        void traverse(std::vector<std::string>& node_value_acc);
+        void accept(Interpreter& i) override;
 };
 
 #endif // End of BINARY_OPERATOR_NODE

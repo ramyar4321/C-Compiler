@@ -3,6 +3,7 @@
 
 #include "../Token/Token.hpp"
 #include "ASTNode.hpp"
+#include "../Interpreter/Interpreter.hpp"
 
 /**
  * +++++++++++++++++++++++++++++
@@ -21,7 +22,9 @@ class IntegerNode : public ASTNode{
     public:
         IntegerNode(Token t);
 
-        void traverse(std::vector<std::string>& node_value_acc);
+        Token getToken();
+
+        void accept(Interpreter& i) override;
 };
 
 #endif // End of INTEGER_NODE

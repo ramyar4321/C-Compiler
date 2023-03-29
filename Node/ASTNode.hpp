@@ -1,6 +1,7 @@
 #ifndef AST_NODE
 #define AST_NODE
 
+//#include "../Interpreter/Interpreter.hpp"
 #include <vector>
 #include <string>
 
@@ -14,11 +15,13 @@
  * abstract syntax tree. 
  * 
 */
+
+class Interpreter;
+
 class ASTNode{
     public:
-        virtual ~ASTNode() = 0;
 
-        virtual void traverse(std::vector<std::string>& node_value_acc) = 0;
+        virtual void accept(Interpreter& i) = 0;
 
 };
 
