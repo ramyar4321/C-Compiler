@@ -29,7 +29,6 @@ class Interpreter{
         virtual void visit_BinOpNode(BinOpNode& node) = 0;
         virtual void visit_IntegerNode(IntegerNode& node) = 0;
 
-        virtual std::stack<std::string> getNodes()=0;
 };
 
 #endif // End of INTERPRETER

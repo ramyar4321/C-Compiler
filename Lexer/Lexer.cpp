@@ -44,7 +44,7 @@ std::vector<Token> Lexer::tokenize(){
         } else if(isdigit(this->cur_char)){
             tokens.push_back(makeIntegerToken());
         } else{
-            // Erro: unidentified symbol reached
+            // Error: unidentified symbol reached
             Error::getInstance().setFlag();
 
 

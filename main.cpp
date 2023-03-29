@@ -3,6 +3,7 @@
 #include "Test/TestLexer.hpp"
 #include "Test/TestError.hpp"
 #include "Test/TestParser.hpp"
+#include "Test/TestEvaluator.hpp"
 
 int main() 
 {
@@ -32,6 +33,8 @@ int main()
     te.testError();
     TestParser tp;
     tp.testParser();
+    TestEvaluator teval;
+    teval.testEvaluator();
 
 
   return 0;
