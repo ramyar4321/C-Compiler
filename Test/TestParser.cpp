@@ -35,37 +35,36 @@ bool TestParser::testParser(){
     Parser parser = Parser(tokens);
     std::unique_ptr<ASTNode> root = parser.initParser();
 
-    std::unique_ptr<Interpreter> interp(new Store); 
+    Store interp;
+    root.get()->accept(interp);
 
-    root.get()->accept(*interp.get());
+    std::stack<std::string> actual_results = interp.getNodes();
 
-    std::stack<std::string> nodes = interp.get()->getNodes();
-
-    while(!nodes.empty()){
-        std::cout << nodes.top() << std::endl;
-        nodes.pop();
-    }
-
-    /*std::vector<std::string> actual_results;
-    root.get()->traverse(actual_results);
-
-    std::vector<std::string> expected_results = {"123", "+", "456", "*", "789"};
+    std::stack<std::string> expected_results;
+    expected_results.push("123");
+    expected_results.push("456");
+    expected_results.push("789");
+    expected_results.push("*");
+    expected_results.push("+");
 
     if(actual_results.size() == expected_results.size()){
 
-        if( actual_results[0] == expected_results[0] &&
-            actual_results[1] == expected_results[1] &&
-            actual_results[2] == expected_results[2] &&
-            actual_results[3] == expected_results[3] &&
-            actual_results[4] == expected_results[4]){
-                std::cout << "Parser test passed!" << std::endl;
-            } else{
+        while(!expected_results.empty()){
+            if( expected_results.top() != actual_results.top()){
                 std::cout << "Parser test failed! AST incorrectly built." << std::endl;
+                testPassed = false;
+                return testPassed;
             }
+            expected_results.pop();
+            actual_results.pop();
+        }
     } else{
         std::cout << "Parser test failed! Expected result size not equal to actual result size." << std::endl;
         testPassed = false;
-    }*/
+        return testPassed;
+    }
+
+    std::cout << "Parser test passed!" << std::endl;
 
     return testPassed;
 }

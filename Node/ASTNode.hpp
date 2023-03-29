@@ -16,6 +16,7 @@
  * 
 */
 
+// Forward declaration
 class Interpreter;
 
 class ASTNode{

@@ -18,13 +18,21 @@ void Store::visit_BinOpNode(BinOpNode& node) {
 /**
  * Store a Integer Node
  * by pushing the Integer
- * value onto the stack
+ * value onto the stack.
  * 
 */
 void Store::visit_IntegerNode(IntegerNode& node){
     this->nodes.push(node.getToken().getTokenValue());
 }
 
+/**
+ * Return the stack containing the nodes'
+ * values.
+ * 
+ * @ return     A stack containing strings 
+ *              that represent the value of 
+ *              each node in the AST
+*/
 std::stack<std::string> Store::getNodes(){
     return this->nodes;
 }

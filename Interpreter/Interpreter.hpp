@@ -4,9 +4,6 @@
 #include <stack>
 #include <string>
 
-//#include "../Node/BinOpNode.hpp"
-//#include "../Node/IntegerNode.hpp"
-
 /**
  * ++++++++++++++++++++++++++++++++++
  * ----------Interpreter-------------
@@ -21,6 +18,8 @@
  * will be C++ interface. 
  * 
 */
+
+// Forward declarations
 class BinOpNode;
 class IntegerNode;
 
