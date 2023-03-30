@@ -27,7 +27,7 @@
 bool TestEvaluator::testEvaluator(){
     bool testPassed = true;
 
-    std::string text = "123+456*789";
+    std::string text = "1+2*3";
 
     int actual_result;
     int expected_result = 7;

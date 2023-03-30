@@ -14,26 +14,25 @@ void Evaluator::visit_BinOpNode(BinOpNode& node){
 
     std::string op = node.getOp();   
 
-    if( op.compare("+")){
+    if( op == "+"){
         rhs = this->nodes.top();
         this->nodes.pop();
         lhs = this->nodes.top();
         this->nodes.pop();
         this->nodes.push(lhs+rhs);
-    } else if (op.compare("-")){
+    } else if (op == "-"){
         rhs = this->nodes.top();
         this->nodes.pop();
         lhs = this->nodes.top();
         this->nodes.pop();
         this->nodes.push(lhs-rhs);
-    } else if (op.compare("*")){
+    } else if (op == "*"){
         rhs = this->nodes.top();
         this->nodes.pop();
         lhs = this->nodes.top();
         this->nodes.pop();
         this->nodes.push(lhs*rhs);
     } else {
-
         // Error: unidentified Node reached
         Error::getInstance().setFlag();
 
@@ -51,7 +50,8 @@ void Evaluator::visit_BinOpNode(BinOpNode& node){
 */
 void Evaluator::visit_IntegerNode(IntegerNode& node){
 
-    this->nodes.push(std::stoi(node.getToken().getTokenValue()));
+    int value = std::stoi(node.getToken().getTokenValue());
+    this->nodes.push(value);
 }
 
 /**
@@ -62,7 +62,7 @@ void Evaluator::visit_IntegerNode(IntegerNode& node){
 int Evaluator::result(){
 
     int res;
-    if(!this->nodes.empty()){
+    if(this->nodes.empty()){
         res = 0;
     } else{
         res = this->nodes.top();
